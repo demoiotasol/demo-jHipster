@@ -1,0 +1,8 @@
+{
+  "generator-jhipster": {
+    "baseName": "DemoApp",
+    "packageName": "com.demo.app",
+    "packageFolder": "com/demo/app",
+    "hibernateCache": "hazelcast"
+  }
+}

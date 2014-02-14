@@ -1,0 +1,41 @@
+server:
+    port: 8080
+    address: localhost
+
+spring:
+    profiles: dev
+    datasource:
+        dataSourceClassName: org.hsqldb.jdbc.JDBCDataSource
+        url: jdbc:hsqldb:mem:DemoApp
+        databaseName: 
+        serverName: 
+        username: 
+        password:
+
+    jpa:
+        database-platform: org.hibernate.dialect.HSQLDialect
+        database: HSQL
+        openInView: false
+        show_sql: true
+        generate-ddl: false
+        hibernate:
+            ddl-auto: none
+            naming-strategy: org.hibernate.cfg.EJB3NamingStrategy
+        properties:
+            hibernate.cache.use_second_level_cache: true
+            hibernate.cache.use_query_cache: false
+            hibernate.generate_statistics: true
+            hibernate.cache.region.factory_class: com.demo.app.config.hazelcast.HazelcastCacheRegionFactory
+            hibernate.cache.use_minimal_puts: true
+            hibernate.cache.hazelcast.use_lite_member: true
+
+metrics:
+    jmx.enabled: true
+
+cache:
+    timeToLiveSeconds: 3600
+    hazelcast:
+        debug: true
+        stickySession: false
+        backupCount: 1
+        
